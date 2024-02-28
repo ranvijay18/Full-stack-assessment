@@ -9,6 +9,7 @@ nextPage.addEventListener('click', ()=>{
 
 
 fetchConfig.addEventListener('submit', async (e) => {
+    try{
     e.preventDefault();
     let id = e.target.config.value;
     const res = await axios.get(`http://localhost:8000/api/configurations/${id}`)
@@ -23,6 +24,9 @@ fetchConfig.addEventListener('submit', async (e) => {
         console.log(ele)
         showData(ele)
     });
+    }catch(error){
+        console.log(error);
+    }
 })
 
 
